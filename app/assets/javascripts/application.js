@@ -15,10 +15,14 @@
 //= require activestorage
 //= require_tree .
 
-function Show() {
-  $('.create_todo').show();
+$$(document).ready(function() {
+  function Show() {
+    $('.create_todo').show();
 
-}
-function Hide() {
-  $('.create_todo').slideUp();
-}
+  }
+});
+$$(document).ready(function() {
+  function Hide() {
+    $('.create_todo').slideUp();
+  }
+});
