@@ -13,6 +13,8 @@
  */
 /* Custom bootstrap variables must be set or imported *before* bootstrap. */
 @import "bootstrap";
+@import "icheck/square/blue";
+@import "select2-bootstrap";
 
 @font-face{
   font-family: 'OpenSans-Light';
@@ -33,19 +35,23 @@
   font-style: normal;
 }
 body{
-  font-family: 'OpenSans-Light';
+  font-family: 'OpenSans-Regular';
+  background: #f9f9f9;
 }
 
 .header{
   display: flex;
   justify-content: center;
   align-content: center;
+  align-items: center;
+  background-color: #8cc7ff;
+  height: 65px;
 }
 
 #add-block{
   float: right;
   position: absolute;
-  top: 10px;
+  top: 18.5px;
   right: 20px;
 }
 
@@ -53,10 +59,42 @@ body{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  margin-top: 40px;
 }
 
 .box-content{
-  -webkit-box-shadow: 1px 2px 8px 0px rgba(0,0,0,0.75);
-  -moz-box-shadow: 1px 2px 8px 0px rgba(0,0,0,0.75);
-  box-shadow: 1px 2px 8px 0px rgba(0,0,0,0.75);
+  -webkit-box-shadow: 1px 2px 19px -3px rgba(0,0,0,0.75);
+  -moz-box-shadow: 1px 2px 19px -3px rgba(0,0,0,0.75);
+  box-shadow: 1px 2px 19px -3px rgba(0,0,0,0.75);
+  width: 350px;
+  background-color: #ffffff;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#box-title{
+  display: flex;
+  justify-content: flex-start;
+  align-content: center;
+  border-bottom: 1px solid black;
+  margin-bottom: 25px;
+}
+
+.box-alltodo{
+
+}
+
+.box-todo{
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-bottom: 25px;
+}
+
+#todo-text{
+  margin-left: 15px;
 }

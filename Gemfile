@@ -31,6 +31,10 @@ gem 'popper_js', '~> 1.14.5'
 
 gem 'jquery-rails'
 
+gem 'icheck-rails'
+
+gem "select2-rails"
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
