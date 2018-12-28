@@ -1,0 +1,30 @@
+<h1>Задачи</h1>
+<table>
+  <% @project.each do |project| %>
+
+    <h4><%= project.title %></h4>
+
+    <% project.todos.each do |todos| %>
+    <p><%= todos.text %></p>
+    <% end %>
+
+  <% end %>
+</table>
+<button type="button" name="button_create" class="btn btn-warning" onclick="Show()">Новая задача</button><br><br>
+<div class="create_todo">
+<%= form_for :todoCreate, url: '/todos' do |f| %>
+  <p>
+    <%= f.text_field :text %>
+  </p>
+    <%= f.select :project_id,[['Семья',1],['Работа',2],['Прочее',3]] %><br><br>
+
+    <!-- <a href="/todos" onclick="document.getElementById('todo_create').submit(); return false;">OK</a> -->
+    <%= f.submit({:class => 'btn btn-success'}) %>
+    <%# <% link_to 'ОК1', '/todos', class:"submit-btn", onclick=> "Show()" %>
+
+<% end %>
+<br><button type="button" name="button_hide" class="btn btn-danger" onclick="Hide()">Отмена</button>
+</div>
+<script type="text/javascript">
+  $('.create_todo').hide();
+</script>

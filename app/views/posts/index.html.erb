@@ -1,0 +1,7 @@
+<h1>Задачи</h1>
+<table>
+  <% @project.each do |project| %>
+    <h1><%= project.title %></h1>
+      <p><%= project.todos %></p>
+  <% end %>
+</table>
