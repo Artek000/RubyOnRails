@@ -1,15 +1,17 @@
 <h1>Задачи</h1>
-<table>
+<div class="main-content">
   <% @project.each do |project| %>
 
-    <h4><%= project.title %></h4>
+    <div class="box-content">
+        <h4><%= project.title %></h4>
 
-    <% project.todos.each do |todos| %>
-    <p><%= todos.text %></p>
-    <% end %>
+        <% project.todos.each do |todos| %>
+        <p><%= todos.text %></p>
+        <% end %>
+    </div>
 
   <% end %>
-</table>
+</div>
 <button type="button" name="button_create" class="btn btn-warning" onclick="Show()">Новая задача</button><br><br>
 <div class="create_todo">
 <%= form_for :todoCreate, url: '/todos' do |f| %>
