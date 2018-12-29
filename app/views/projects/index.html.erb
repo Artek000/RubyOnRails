@@ -33,26 +33,32 @@
 
   <% end %>
 </div>
-<button type="button" name="button_create" class="btn btn-warning" onclick="Show()">Новая задача</button><br><br>
 <div class="create_todo">
+  <div class="case_todo">
+    <div class="case_title">
+      <h4>Новая задача</h4>
+    </div>
 <%= form_for :todoCreate, url: todos_path do |f| %>
   <p>
-    <%= f.text_field :text %>
+    <%= f.text_field :text %><br>
   </p>
 
-    <%= f.select :project_id, Project.select("id,title").order("id ASC").collect{ |r| [r.title, r.id] } %><br><br>
+    <%= f.select :project_id, Project.select("id,title").order("id ASC").collect{ |r| [r.title, r.id] }, :class => 'addtodo' %><br>
 
     <!-- <a href="/todos" onclick="document.getElementById('todo_create').submit(); return false;">OK</a> -->
-    <%= f.submit({:class => 'btn btn-success'}) %>
+    <%= f.submit({:class => 'btn btn-succes'}) %>
+    <button type="button" name="button_hide" class="btn btn-danger" onclick="Hide()">Отмена</button>
     <%# <% link_to 'ОК1', '/todos', class:"submit-btn", onclick=> "Show()" %>
 
 <% end %>
-<br><button type="button" name="button_hide" class="btn btn-danger" onclick="Hide()">Отмена</button>
 </div>
+</div>
+
 <script type="text/javascript">
   $(document).ready(function() {
 
     $('.create_todo').hide();
+    $('#backBlack').hide();
 
     $("#dropdown").select2({
     theme: "bootstrap"

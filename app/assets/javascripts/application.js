@@ -19,13 +19,14 @@
 //= require select2
 
   function Show() {
+    $('#backBlack').show();
     $('.create_todo').show();
-
   }
 
 
   function Hide() {
     $('.create_todo').slideUp();
+    $('#backBlack').hide();
   }
 
   function icheck(){
