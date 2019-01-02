@@ -12,19 +12,6 @@
         <div class="box-todo">
         <input type="checkbox" class='icheck-me' data-skin="square" data-color="blue" />
         <div id="todo-text"><p id="text"><%= todos.text %></p></div>
-
-          <!-- <script type="text/javascript">
-            $(this).on('ifChecked', function(event){
-                $(this).closest('input').attr('checked', true);
-                $(this).closest('p').css('text-decoration', 'line-through');
-            });
-
-            $(this).on('ifUnchecked', function(event){
-                $(this).closest('input').attr('checked', false);
-                $(this).closest('p').css('text-decoration', 'none');
-            });
-          </script> -->
-
         </div>
         <% end %>
         </div>
@@ -38,19 +25,23 @@
     <div class="case_title">
       <h4>Новая задача</h4>
     </div>
-<%= form_for :todoCreate, url: todos_path do |f| %>
-  <p>
-    <%= f.text_field :text %><br>
+
+<%= form_for :todoCreate, url: todos_path, :html => {:class => 'form_todo'} do |f| %>
+
+  <p class="text_todo">
+    <%= f.text_field :text, :html => {:class => 'input_todo'} %><br>
   </p>
-
-    <%= f.select :project_id, Project.select("id,title").order("id ASC").collect{ |r| [r.title, r.id] }, :class => 'addtodo' %><br>
-
-    <!-- <a href="/todos" onclick="document.getElementById('todo_create').submit(); return false;">OK</a> -->
-    <%= f.submit({:class => 'btn btn-succes'}) %>
+    <%= f.select :project_id, Project.select("id,title").order("id ASC").collect{ |r| [r.title, r.id] } %>
+    <script type="text/javascript">
+          $('#todoCreate_project_id').select2();
+    </script>
+    <div class="buttons_todo">
+    <%= f.submit({:class => 'btn btn-warning',:value => 'Создать'}) %>
     <button type="button" name="button_hide" class="btn btn-danger" onclick="Hide()">Отмена</button>
-    <%# <% link_to 'ОК1', '/todos', class:"submit-btn", onclick=> "Show()" %>
+    </div>
 
 <% end %>
+
 </div>
 </div>
 

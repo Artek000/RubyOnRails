@@ -42,6 +42,20 @@
       $el.iCheck(opt);
     });
   }
+
+$(".icheck-me").on('ifChanged', function(event) {
+  var isChecked = event.currentTarget.checked;
+  if(isChecked == true){
+    $(this).attr('checked', true);
+    $(this).parent().parent().find('#text').css('text-decoration', 'line-through');
+  }else if (isChecked == false) {
+    $(this).attr('checked', false);
+    $(this).parent().parent().find('#text').css('text-decoration', 'none');
+  }else {
+    alert('error');
+  }
+});
+
 }
 
 $(function(){
