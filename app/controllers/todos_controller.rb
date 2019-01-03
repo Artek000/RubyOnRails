@@ -1,5 +1,7 @@
 class TodosController < ApplicationController
 
+  before_action :set_todo, only: [:show, :edit, :update, :destroy]
+
   def new
     @todo = Todo.new
   end
@@ -12,6 +14,23 @@ class TodosController < ApplicationController
 
   private def todo_params
     params.require(:todoCreate).permit(:text, :project_id)
+  end
+
+  def edit
+  end
+
+  def update
+    @todo = Todo.find(params[:id])
+    @todo.update(update_params)
+    redirect_back fallback_location: home_path
+  end
+
+  private def update_params
+    params.require(:todoUpdate).permit(:isCompleted)
+  end
+
+  private def set_todo
+    @todo = Todo.find(params[:id])
   end
 
 end

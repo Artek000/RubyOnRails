@@ -19,14 +19,14 @@
 //= require select2
 
   function Show() {
-    $('#backBlack').show();
-    $('.create_todo').show();
+    $('#backBlack').show().css('visibility', 'visible');
+    $('.create_todo').show().css('visibility', 'visible');
   }
 
 
   function Hide() {
-    $('.create_todo').slideUp();
-    $('#backBlack').hide();
+    $('.create_todo').slideUp().css('visibility', 'hidden');
+    $('#backBlack').hide().css('visibility', 'hidden');
   }
 
   function icheck(){
@@ -47,10 +47,11 @@ $(".icheck-me").on('ifChanged', function(event) {
   var isChecked = event.currentTarget.checked;
   if(isChecked == true){
     $(this).attr('checked', true);
-    $(this).parent().parent().find('#text').css('text-decoration', 'line-through');
+    $(this).parent().parent().parent().find('#text').css('text-decoration', 'line-through');
+    $('.update-form').submit();
   }else if (isChecked == false) {
     $(this).attr('checked', false);
-    $(this).parent().parent().find('#text').css('text-decoration', 'none');
+    $(this).parent().parent().parent().find('#text').css('text-decoration', 'none');
   }else {
     alert('error');
   }
