@@ -4,8 +4,8 @@ root 'projects#index', as: 'home'
 
 get 'todos' => 'todos#create'
 
-resources :todos do
 resources :projects
-end
+resources :todos
+
 
 end

@@ -7,11 +7,14 @@
         </div>
 
         <div class="box-alltodo">
-        <% project.todos.each do |todos| %>
+        <% project.todos.each do |todo| %>
 
         <div class="box-todo">
-        <input type="checkbox" class='icheck-me' data-skin="square" data-color="blue" />
-        <div id="todo-text"><p id="text"><%= todos.text %></p></div>
+
+        <%= form_for todo, :html => {:class => 'update-form'} do |f| %>
+        <%= f.check_box :isCompleted, :class => 'icheck-me','data-skin' => 'square','data-color' => 'blue' %>
+        <% end %>
+        <div id="todo-text"><p id="text"><%= todo.text %></p></div>
         </div>
         <% end %>
         </div>
@@ -20,7 +23,7 @@
 
   <% end %>
 </div>
-<div class="create_todo">
+<div class="create_todo" style="visibility: hidden;">
   <div class="case_todo">
     <div class="case_title">
       <h4>Новая задача</h4>
