@@ -12,10 +12,6 @@ class TodosController < ApplicationController
     redirect_back fallback_location: home_path
   end
 
-  private def todo_params
-    params.require(:todoCreate).permit(:text, :project_id)
-  end
-
   def edit
   end
 
@@ -25,11 +21,17 @@ class TodosController < ApplicationController
     redirect_back fallback_location: home_path
   end
 
-  private def update_params
-    params.require(:todoUpdate).permit(:isCompleted)
+  private
+
+  def todo_params
+    params.require(:todoCreate).permit(:text, :project_id)
   end
 
-  private def set_todo
+  def update_params
+    params.require(:todo).permit(:isCompleted)
+  end
+
+  def set_todo
     @todo = Todo.find(params[:id])
   end
 

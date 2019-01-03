@@ -7,14 +7,14 @@
         </div>
 
         <div class="box-alltodo">
-        <% project.todos.each do |todos| %>
+        <% project.todos.each do |todo| %>
 
         <div class="box-todo">
 
-        <%= form_for :todoUpdate, url: update_path, :html => {:class => 'update-form'} do |f| %>
+        <%= form_for todo, :html => {:class => 'update-form'} do |f| %>
         <%= f.check_box :isCompleted, :class => 'icheck-me','data-skin' => 'square','data-color' => 'blue' %>
         <% end %>
-        <div id="todo-text"><p id="text"><%= todos.text %></p></div>
+        <div id="todo-text"><p id="text"><%= todo.text %></p></div>
         </div>
         <% end %>
         </div>

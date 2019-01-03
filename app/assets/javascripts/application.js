@@ -40,18 +40,27 @@
         radioClass: 'iradio' + skin + color,
       }
       $el.iCheck(opt);
+
+      if ($el.prop('checked') == true) {
+        $el.parent().parent().parent().find('#text').css('text-decoration', 'line-through');
+      }else if ($el.prop('checked') == false) {
+        $el.parent().parent().parent().find('#text').css('text-decoration', 'none');
+      }
+
     });
   }
+
 
 $(".icheck-me").on('ifChanged', function(event) {
   var isChecked = event.currentTarget.checked;
   if(isChecked == true){
     $(this).attr('checked', true);
     $(this).parent().parent().parent().find('#text').css('text-decoration', 'line-through');
-    $('.update-form').submit();
+    $(this).parent().parent().submit();
   }else if (isChecked == false) {
     $(this).attr('checked', false);
     $(this).parent().parent().parent().find('#text').css('text-decoration', 'none');
+    $(this).parent().parent().submit();
   }else {
     alert('error');
   }
